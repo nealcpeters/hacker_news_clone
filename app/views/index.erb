@@ -4,12 +4,17 @@
   <div class="post">
     <p><%= post_obj.content %></p>
     <span class="poster_name">By: <%= User.where('id = ?',post_obj.user_id).first.username %></span>
-    <span class="edit_post"><a href="">Edit Post</a></span>
+    <span class="edit_post"><a href="/edit?post_id=<%= post_obj.id%>">Edit Post</a></span>
   </div>
   <div class="comment_container">
     <h4>Comments</h4>
     <div class="comment">
-      <p>Yo mamas soo fat...</p>
+      <% comment = Comment.where('post_id = ?',post_obj.id).first%>
+      <% if !comment.nil? %>
+        <p><%= comment.content %></p>
+      <% else %>
+        <p>Be the first to comment.</p>
+      <% end %>
     </div>
   </div>
   <hr />
