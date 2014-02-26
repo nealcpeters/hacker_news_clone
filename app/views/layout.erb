@@ -18,6 +18,22 @@
   <title></title>
 </head>
 <body>
+  <nav>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <% if session[:username].nil? %>
+      <li>
+        <form method="post" action="/login">
+          <input name="username" placeholder="username">
+          <input name="password" placeholder="password">
+          <input type="submit" value="Login" />
+        </form>
+      </li>
+      <% else %>
+      <li><a href="/logout">Logout</a></li>
+      <% end %>
+    </ul>
+  </nav>
   <div id="wrapper">
     <%= yield %>
   </div>

@@ -1,11 +1,25 @@
 <% if !session[:username].nil? %>
   <h1>Welcome <%= session[:username]%></h1>
 
-<form action="/edit_post" method="post">
-  <input type="text" name="title"/>
-  <textarea name="content"></textarea>
-</form>
+  <form action="/edit_post" method="post">
+    <input type="text" name="title"/>
+    <textarea name="content"></textarea>
+  </form>
 
+  <h3>Your Posts</h3>
+  <a href="/view?post_id=<%= post_obj.id%>">
+  <div class="post">
+    <p><%= post_obj.content %></p>
+    <% user = User.where('id = ?',post_obj.user_id).first.username %>
+    <span class="poster_name">By: <%= user %></span>
+  </div>
+  </a>
+  <h3>Your Comments</h3>
+  <% if @comments %>
+    <% @comments.each do |comment| %>
+        <p><%= comment.content %></p>
+    <% end %>
+  <% end %>
   <a href="/logout">Logout</a>
 <% else %>
   <code>401 You are not authorized to view this page</code>

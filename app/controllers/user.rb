@@ -20,10 +20,11 @@ get '/logout' do
   redirect to('/')
 end
 
-post '/resister' do
-
+post '/register' do
+  User.create(username: params[:username], password: params[:password], password_confirmation: params[:password])
 end
 
 get '/profile' do
+
   erb :profile
 end

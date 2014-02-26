@@ -1,3 +1,7 @@
+*{
+  margin: 0;
+  padding: 0;
+}
 .container {
   margin: 20px auto;
   width: 600px;
@@ -6,13 +10,13 @@
 }
 #wrapper {
   width: 600px;
-  margin: 20px auto;
+  margin: 0 auto;
   background-color: #e6e6e6;
+  clear: both;
 }
 th {
   text-align: left;
 }
-
 .post {
   display: block;
   -moz-border-radius:15px;
@@ -21,15 +25,32 @@ th {
   overflow: hidden;
   padding: 15px;
 }
+.post:hover {
+  background-color: #ababab;
+}
 .poster_name {
   color:#525252;
 }
 .comment_container {
 
 }
+.post_container a{
+  text-decoration: none;
+  color: black;
+}
 .comment {
   background-color: #cfcfcf;
 }
-.edit_post {
+.edit_post a{
   float:right;
+  color: #28525c;
+}
+nav {
+  background-color: #7fe5ff;
+  height: 80px;
+  border-bottom: solid 1px black;
+}
+nav ul li {
+  float: left;
+  list-style: none;
 }

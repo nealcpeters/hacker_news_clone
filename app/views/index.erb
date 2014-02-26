@@ -1,6 +1,7 @@
 <% @posts.each do |post_obj| %>
 <div class="post_container">
   <h4><%= post_obj.title %></h4>
+  <a href="/view?post_id=<%= post_obj.id%>">
   <div class="post">
     <p><%= post_obj.content %></p>
     <% user = User.where('id = ?',post_obj.user_id).first.username %>
@@ -8,10 +9,11 @@
     <% if session[:username] ==  user %>
       <span class="edit_post"><a href="/comment?post_id=<%= post_obj.id%>">Comment</a></span>
       <span class="edit_post"><a href="/edit?post_id=<%= post_obj.id%>">Edit Post</a></span>
-    <% else %>
+    <% elsif !session[:username].nil?%>
       <span class="edit_post"><a href="/comment?post_id=<%= post_obj.id%>">Comment</a></span>
     <% end %>
   </div>
+  </a>
   <div class="comment_container">
     <h4>Comments</h4>
     <div class="comment">
