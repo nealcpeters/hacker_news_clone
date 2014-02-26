@@ -15,6 +15,8 @@ gem 'activerecord'
 
 gem 'rake'
 
+gem 'faker'
+
 gem 'bcrypt-ruby'
 
 gem 'shotgun'

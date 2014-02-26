@@ -4,6 +4,32 @@
   padding: 0px 20px 20px 20px;
   border: 1px dotted black;
 }
+#wrapper {
+  width: 600px;
+  margin: 20px auto;
+  background-color: #e6e6e6;
+}
 th {
   text-align: left;
+}
+
+.post {
+  display: block;
+  -moz-border-radius:15px;
+  border-radius:15px;
+  background-color: #cfcfcf;
+  overflow: hidden;
+  padding: 15px;
+}
+.poster_name {
+  color:#525252;
+}
+.comment_container {
+
+}
+.comment {
+  background-color: #cfcfcf;
+}
+.edit_post {
+  float:right;
 }
